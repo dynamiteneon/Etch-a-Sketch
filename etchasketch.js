@@ -28,3 +28,15 @@ for(let i=0; i<16; i++){
 
     }
 }
+
+main.addEventListener('mousedown', function(){
+    document.querySelectorAll('.column').forEach(item => {
+        item.addEventListener('mouseover',event => {
+            item.style.backgroundColor="black";
+    })})})
+
+
+
+
+
+

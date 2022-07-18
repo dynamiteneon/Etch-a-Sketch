@@ -2,14 +2,23 @@ const main=document.querySelector('#main');
 const rowDiv = [];
 const colDiv = [];
 
+const sizeButton = document.querySelector('#gridsize');
+
 let Column;
 let Row;
 
-let Grid = prompt("Square size");
-let ColumnRoot;
-let SquareSize=450/Grid;
+let Grid = 16;
+let SquareSize;
 
 let gridClick = false
+
+sizeButton.addEventListener('click', function(){
+    
+    Grid = prompt('Enter pixel size:');
+    
+    clearGrid();
+    createGrid();
+})
 
 main.addEventListener('mousedown', function(){
     gridClick = true;
@@ -19,10 +28,12 @@ main.addEventListener('mouseup',function(){
     gridClick = false;
 })
 
-
+function createGrid(){
 
 for(let i=0; i<Grid; i++){
     
+    SquareSize = 450/Grid;
+
     Row = `row${i}`
 
     rowDiv[i] = document.createElement('div');
@@ -46,6 +57,18 @@ for(let i=0; i<Grid; i++){
 
     }
 }
+}
+
+function clearGrid(){
+
+    while(main.firstChild){
+        main.removeChild(main.firstChild);
+    }
+
+    rowDiv.length=0;
+    colDiv.length=0;
+
+}
 
 function divColor(e){
 
@@ -55,5 +78,7 @@ function divColor(e){
     }
 
 }
+
+createGrid();
 
 

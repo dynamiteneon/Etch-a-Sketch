@@ -25,3 +25,8 @@ body{
 .column{
     background-color: gray;
 }
+
+#gridsize{
+    margin: 16px;
+    padding: 4px;
+}

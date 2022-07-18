@@ -1,8 +1,7 @@
-const main=document.querySelector('#main');
+const main = document.querySelector('#main');
+const sizeButton = document.querySelector('#gridsize');
 const rowDiv = [];
 const colDiv = [];
-
-const sizeButton = document.querySelector('#gridsize');
 
 let Column;
 let Row;
@@ -10,7 +9,7 @@ let Row;
 let Grid = 16;
 let SquareSize;
 
-let gridClick = false
+let gridClick = false;
 
 sizeButton.addEventListener('click', function(){
     
@@ -18,6 +17,7 @@ sizeButton.addEventListener('click', function(){
     
     clearGrid();
     createGrid();
+
 })
 
 main.addEventListener('mousedown', function(){
@@ -74,7 +74,6 @@ function divColor(e){
 
     if(gridClick==true){
     e.target.style.backgroundColor="black";
-    console.log("ass")
     }
 
 }

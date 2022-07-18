@@ -5,8 +5,23 @@ const colDiv = [];
 let Column;
 let Row;
 
+let Grid = prompt("Square size");
+let ColumnRoot;
+let SquareSize=450/Grid;
 
-for(let i=0; i<16; i++){
+let gridClick = false
+
+main.addEventListener('mousedown', function(){
+    gridClick = true;
+})
+
+main.addEventListener('mouseup',function(){
+    gridClick = false;
+})
+
+
+
+for(let i=0; i<Grid; i++){
     
     Row = `row${i}`
 
@@ -16,27 +31,29 @@ for(let i=0; i<16; i++){
     
     main.appendChild(rowDiv[i]);
     
-    for(let x=0; x<16; x++){
+    for(let x=0; x<Grid; x++){
         
-        Column = `column${x}`;
+        Column = `row${i}column${x}`;
 
         colDiv[x] = document.createElement('div');
         colDiv[x].classList.add('column');
         colDiv[x].setAttribute('id',Column);
+        colDiv[x].style.height=`${SquareSize}px`;
+        colDiv[x].style.width=`${SquareSize}px`;
+        colDiv[x].addEventListener('mouseover',divColor)
 
         rowDiv[i].appendChild(colDiv[x]);
 
     }
 }
 
-main.addEventListener('mousedown', function(){
-    document.querySelectorAll('.column').forEach(item => {
-        item.addEventListener('mouseover',event => {
-            item.style.backgroundColor="black";
-    })})})
+function divColor(e){
 
+    if(gridClick==true){
+    e.target.style.backgroundColor="black";
+    console.log("ass")
+    }
 
-
-
+}
 
 
